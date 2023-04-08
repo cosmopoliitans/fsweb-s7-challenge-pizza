@@ -17,6 +17,7 @@ export default function Giris() {
               </Link>
             </div>
             <img
+              className="giris-image"
               src="https://www.eauclairesbestpizza.com/wp-content/uploads/2022/06/pizza-6-speciality-1-1fx9ae.png"
               alt="giris-pizza"
             />

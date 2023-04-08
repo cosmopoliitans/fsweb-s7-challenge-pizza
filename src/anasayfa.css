@@ -1,0 +1,106 @@
+.anasayfa {
+  margin: auto; /* sayfa içeriğinin ortalanması */
+  display: block;
+  flex-direction: column;
+}
+
+.header {
+  display: flex; /* menü öğelerini yan yana hizalamak için */
+  justify-content: space-between; /* öğeleri arasında boşluk bırakmak için */
+  align-items: center; /* öğeleri dikeyde ortalamak için */
+  padding: 20px; /* içeriğin etrafına boşluk bırakmak için */
+  background-color: #f7f7f7; /* arka plan rengi */
+}
+
+.anasayfa-buton {
+  color: aliceblue;
+  padding: 8px 50px;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: brown;
+  border-radius: 10px;
+  border: solid 1px aliceblue;
+  font-family: Calibri;
+  transition: 0.5s;
+  text-decoration: none;
+}
+.anasayfa-buton:hover {
+  background-color: rgb(21, 76, 121);
+  color: aliceblue;
+}
+
+.pizza {
+  position: relative; /* içeriği konumlandırmak için */
+}
+
+.pizza h1 {
+  font-family: "Bangers", cursive;
+  letter-spacing: 13px;
+  font-size: 50px;
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  color: aliceblue;
+  text-shadow: 2px 2px 4px #000000;
+}
+.anasayfa-genis {
+  width: 100%; /* resmin genişliği */
+  height: auto; /* oranları korumak için */
+}
+
+.pizzaCesitler img {
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+}
+.pizzaCesitler {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.pizza-kart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 15px 15px;
+  box-sizing: border-box;
+  background-color: rgb(21, 76, 121);
+  border-radius: 8px;
+  margin: 0 10px;
+}
+.pizza-kart p {
+  color: aliceblue;
+  text-align: center;
+}
+.footer {
+  background-color: #eee;
+  color: #444;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+}
+
+.footer ul li:not(:last-child) {
+  margin-right: 10px;
+}
+
+.footer ul li a {
+  color: #444;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer ul li a:hover {
+  color: #777;
+}

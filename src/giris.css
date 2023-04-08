@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  justify-content: center;
   background-color: brown;
 }
 .baslik {
@@ -35,12 +37,10 @@ h2 {
   color: aliceblue;
 }
 
-img {
-  display: block; /* img etiketi inline bir etiket olduğu için, önce block'a çeviriyoruz */
-  margin: auto; /* resmi yatayda ortalamak için */
-  position: absolute; /* dikey pozisyonu ayarlamak için */
-  bottom: 0; /* en alt kısma hizalamak için */
-  left: 0;
-  right: 0;
-  width: 80%;
+.giris-image {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
 }
