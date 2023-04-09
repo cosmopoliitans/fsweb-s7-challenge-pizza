@@ -135,8 +135,45 @@ table {
   display: flex;
   flex-direction: column;
 }
-.pizza-turu h3 {
+.form-yazi {
+  padding: 120px 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
   font-family: calibri;
-  font-weight: bold;
   color: aliceblue;
+  font-weight: bold;
+}
+.bolum1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  gap: 120px;
+}
+.pizza-turu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pizza-turu h3,
+.hamur-boyut h3,
+.hamur-kalinligi h3,
+.ek-malzemeler h3,
+.siparis-adet h3,
+.iletisim-bilgileri h3 {
+  font-size: 2rem;
+  color: rgb(194, 220, 241);
+  padding-bottom: 20px;
+}
+
+.ek-malzemeler p {
+  padding-bottom: 20px;
+}
+
+.pizza-select {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
 }
