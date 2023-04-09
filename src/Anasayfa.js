@@ -1,7 +1,8 @@
 import React from "react";
 import "./anasayfa.css";
 import PizzaKart from "./PizzaKart";
-import { Link } from "react-router-dom";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import Siparis from "./Siparis";
 
 const pizzaCesitleri = [
   {
@@ -32,45 +33,54 @@ const pizzaCesitleri = [
 
 export default function Anasayfa() {
   return (
-    <div className="anasayfa">
-      <div className="header">
-        <Link to="/orderpizza" className="anasayfa-buton">
-          Anasayfa
-        </Link>
-        <Link to="/siparis" className="anasayfa-buton">
-          Sipariş Ver
-        </Link>
-      </div>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/anasayfa">
+          <div className="anasayfa">
+            <div className="header">
+              <Link to="/anasayfa" className="anasayfa-buton">
+                Anasayfa
+              </Link>
+              <Link to="/pizza" className="anasayfa-buton">
+                Sipariş Ver
+              </Link>
+            </div>
 
-      <div className="pizza">
-        <div className="pizza-header">
-          <img
-            className="anasayfa-genis"
-            src="https://thumbs.dreamstime.com/b/pizza-food-background-homemade-neapolitan-pizza-margherita-mozzarella-cheese-tomato-sauce-rustic-black-table-italian-249177791.jpg"
-            alt="anasayfa-genis"
-          />
-          <h1>LEZZET PARMAKLARININ UCUNDA !</h1>
-        </div>
-      </div>
-      <div className="pizzaCesitler">
-        {pizzaCesitleri.map((event) => (
-          <PizzaKart pizzaCesitleri={event} />
-        ))}
-      </div>
-      <footer className="footer">
-        <p>Tüm hakları saklıdır &copy; 2023</p>
-        <ul>
-          <li>
-            <a href="#">Gizlilik Politikası</a>
-          </li>
-          <li>
-            <a href="#">Kullanım Şartları</a>
-          </li>
-          <li>
-            <a href="#">İletişim</a>
-          </li>
-        </ul>
-      </footer>
-    </div>
+            <div className="pizza">
+              <div className="pizza-header">
+                <img
+                  className="anasayfa-genis"
+                  src="https://thumbs.dreamstime.com/b/pizza-food-background-homemade-neapolitan-pizza-margherita-mozzarella-cheese-tomato-sauce-rustic-black-table-italian-249177791.jpg"
+                  alt="anasayfa-genis"
+                />
+                <h1>LEZZET PARMAKLARININ UCUNDA !</h1>
+              </div>
+            </div>
+            <div className="pizzaCesitler">
+              {pizzaCesitleri.map((event) => (
+                <PizzaKart pizzaCesitleri={event} />
+              ))}
+            </div>
+            <footer className="footer">
+              <p>Tüm hakları saklıdır &copy; 2023</p>
+              <ul>
+                <li>
+                  <a href="#">Gizlilik Politikası</a>
+                </li>
+                <li>
+                  <a href="#">Kullanım Şartları</a>
+                </li>
+                <li>
+                  <a href="#">İletişim</a>
+                </li>
+              </ul>
+            </footer>
+          </div>
+        </Route>
+        <Route exact path="/pizza">
+          <Siparis />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }

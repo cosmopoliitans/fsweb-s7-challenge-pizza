@@ -12,7 +12,7 @@ export default function Giris() {
             <div className="baslik">
               <h3>Aromalı Dünya</h3>
               <h2>DAMAKTA KALACAK LEZZET</h2>
-              <Link to="/orderpizza">
+              <Link to="/anasayfa" id="order-pizza">
                 <button className="giris-buton">GİRİŞ</button>
               </Link>
             </div>
@@ -23,7 +23,7 @@ export default function Giris() {
             />
           </div>
         </Route>
-        <Route exact path="/orderpizza">
+        <Route exact path="/anasayfa">
           <Anasayfa />
         </Route>
       </Switch>
