@@ -1,3 +1,135 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Buradan başlıyor */
+
 .anasayfa {
   margin: auto; /* sayfa içeriğinin ortalanması */
   display: block;
@@ -44,6 +176,42 @@
   color: aliceblue;
   text-shadow: 2px 2px 4px #000000;
 }
+.reklam {
+  background-color: brown;
+  padding-top: 85px;
+  padding-bottom: 85px;
+}
+.reklam h3 {
+  text-align: center;
+  padding: 100px;
+  color: aliceblue;
+  background-color: rgb(21, 76, 121);
+  font-family: calibri;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.reklam h3:hover {
+  background-color: rgb(34, 100, 160);
+}
+.sufle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 50px;
+}
+.sufle img {
+  width: 50%;
+  border: 5px solid #eee8aa;
+}
+.sufle p {
+  text-shadow: 2px 2px 4px #000000;
+  color: aliceblue;
+  letter-spacing: 1px;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  font-family: "Alkatra", cursive;
+}
 .anasayfa-genis {
   width: 100%; /* resmin genişliği */
   height: auto; /* oranları korumak için */
@@ -69,12 +237,15 @@
   justify-content: space-around;
   padding: 15px 15px;
   box-sizing: border-box;
-  background-color: rgb(21, 76, 121);
+  background-color: #eee8aa;
   border-radius: 8px;
   margin: 0 10px;
 }
 .pizza-kart p {
-  color: aliceblue;
+  padding-top: 10px;
+  font-family: calibri;
+  font-weight: bold;
+  color: rgb(21, 76, 121);
   text-align: center;
 }
 .footer {

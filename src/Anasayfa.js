@@ -38,11 +38,11 @@ export default function Anasayfa() {
         <Route exact path="/anasayfa">
           <div className="anasayfa">
             <div className="header">
-              <Link to="/anasayfa" className="anasayfa-buton">
-                Anasayfa
+              <Link to="/anasayfa">
+                <button className="anasayfa-buton"> Anasayfa</button>
               </Link>
-              <Link to="/pizza" className="anasayfa-buton">
-                Sipariş Ver
+              <Link to="/pizza">
+                <button className="anasayfa-buton">Sipariş Ver</button>
               </Link>
             </div>
 
@@ -60,6 +60,20 @@ export default function Anasayfa() {
               {pizzaCesitleri.map((event) => (
                 <PizzaKart pizzaCesitleri={event} />
               ))}
+            </div>
+            <div className="reklam">
+              <h3>
+                Siz de lezzetli bir pizza ile keyifli bir akşam geçirmek istemez
+                misiniz?
+              </h3>
+              <div className="sufle">
+                <p>Suflemizi hala denemediniz mi?</p>
+
+                <img
+                  src="https://static.mavikadin.com/images/haberler/22-09/21/sufle-2.jpg"
+                  alt="sufle"
+                />
+              </div>
             </div>
             <footer className="footer">
               <p>Tüm hakları saklıdır &copy; 2023</p>

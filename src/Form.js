@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./siparis.css";
 
 /* YUP ADIMLARI 
 1.yup kurmak,import etmek, done 
@@ -171,7 +172,7 @@ export default function Form() {
   }
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit}>
         <div className="pizza-turu">
           <label for="pizza-turu">
@@ -465,6 +466,6 @@ export default function Form() {
           </button>
         </Link>
       </form>
-    </div>
+    </>
   );
 }
