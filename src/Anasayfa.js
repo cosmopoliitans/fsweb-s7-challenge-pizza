@@ -65,13 +65,13 @@ export default function Anasayfa() {
               <p>Tüm hakları saklıdır &copy; 2023</p>
               <ul>
                 <li>
-                  <a href="#">Gizlilik Politikası</a>
+                  <a href="https://www.example.com">Gizlilik Politikası</a>
                 </li>
                 <li>
-                  <a href="#">Kullanım Şartları</a>
+                  <a href="https://www.example.com">Kullanım Şartları</a>
                 </li>
                 <li>
-                  <a href="#">İletişim</a>
+                  <a href="https://www.example.com">İletişim</a>
                 </li>
               </ul>
             </footer>
