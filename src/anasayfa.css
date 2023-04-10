@@ -141,16 +141,15 @@ table {
   justify-content: space-between; /* öğeleri arasında boşluk bırakmak için */
   align-items: center; /* öğeleri dikeyde ortalamak için */
   padding: 20px; /* içeriğin etrafına boşluk bırakmak için */
-  background-color: #f7f7f7; /* arka plan rengi */
+  background-color: #ce2829; /* arka plan rengi */
 }
 
 .anasayfa-buton {
-  color: aliceblue;
-  padding: 8px 50px;
+  padding: 10px 60px;
   font-weight: bold;
   font-size: 20px;
-  background-color: brown;
-  border-radius: 10px;
+  background-color: #fdc913;
+  border-radius: 20px;
   border: solid 1px aliceblue;
   font-family: Calibri;
   transition: 0.5s;
@@ -177,7 +176,7 @@ table {
   text-shadow: 2px 2px 4px #000000;
 }
 .reklam {
-  background-color: brown;
+  background-color: #ce2829;
   padding-top: 85px;
   padding-bottom: 85px;
 }
@@ -186,7 +185,7 @@ table {
   padding: 100px;
   color: aliceblue;
   background-color: rgb(21, 76, 121);
-  font-family: calibri;
+  font-family: "Barlow", sans-serif;
   font-weight: bold;
   font-size: 2rem;
 }
@@ -201,7 +200,7 @@ table {
 }
 .sufle img {
   width: 50%;
-  border: 5px solid #eee8aa;
+  border: 8px solid #fdc913;
 }
 .sufle p {
   text-shadow: 2px 2px 4px #000000;
@@ -237,7 +236,7 @@ table {
   justify-content: space-around;
   padding: 15px 15px;
   box-sizing: border-box;
-  background-color: #eee8aa;
+  background-color: #fdc913;
   border-radius: 8px;
   margin: 0 10px;
 }
@@ -249,7 +248,7 @@ table {
   text-align: center;
 }
 .footer {
-  background-color: #eee;
+  background-color: #faf7f2;
   color: #444;
   padding: 20px;
   display: flex;

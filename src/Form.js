@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
@@ -58,13 +57,13 @@ export default function Form() {
     pizzaturu: "",
     hamurboyut: "orta",
     hamurkalinligi: "normal",
-    pepperoni: true,
-    sosis: true,
-    jambon: true,
-    sos: true,
+    pepperoni: false,
+    sosis: false,
+    jambon: false,
+    sos: false,
     sogan: false,
     domates: false,
-    misir: true,
+    misir: false,
     sucuk: false,
     jalepeno: false,
     sarimsak: false,
@@ -83,13 +82,13 @@ export default function Form() {
     pizzaturu: "",
     hamurboyut: "",
     hamurkalinligi: "",
-    pepperoni: true,
-    sosis: true,
-    jambon: true,
-    sos: true,
+    pepperoni: false,
+    sosis: false,
+    jambon: false,
+    sos: false,
     sogan: false,
     domates: false,
-    misir: true,
+    misir: false,
     sucuk: false,
     jalepeno: false,
     sarimsak: false,
@@ -107,6 +106,9 @@ export default function Form() {
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [yeniSiparis, setYeniSiparis] = useState([]);
   const history = useHistory();
+  const toSiparisAlindiSayfasi = () => {
+    history.push("/success");
+  };
 
   const checkFormError = (name, value) => {
     Yup.reach(formSchema, name)
@@ -148,13 +150,13 @@ export default function Form() {
           pizzaturu: "",
           hamurboyut: "",
           hamurkalinligi: "",
-          pepperoni: true,
-          sosis: true,
-          jambon: true,
-          sos: true,
+          pepperoni: false,
+          sosis: false,
+          jambon: false,
+          sos: false,
           sogan: false,
           domates: false,
-          misir: true,
+          misir: false,
           sucuk: false,
           jalepeno: false,
           sarimsak: false,
@@ -169,7 +171,7 @@ export default function Form() {
           siparisnotu: "",
         });
         console.log(form);
-        history.push("/ordersubmit");
+        history.push("/success");
       })
       .catch((err) => console.log(err));
   }
@@ -178,7 +180,7 @@ export default function Form() {
     <>
       <form onSubmit={handleSubmit}>
         <div className="form-yazi">
-          <div className="bolum1">
+          <section className="bolum1">
             <div className="pizza-turu">
               <label for="pizza-turu">
                 <h3>
@@ -213,7 +215,10 @@ export default function Form() {
                 checked={form.hamurboyut === "kucuk"}
                 onChange={handleChange}
               />
-               <label for="kucuk">Küçük</label>
+               
+              <label for="kucuk" className="gri">
+                Küçük
+              </label>
               <br />
               <input
                 type="radio"
@@ -223,7 +228,10 @@ export default function Form() {
                 checked={form.hamurboyut === "orta"}
                 onChange={handleChange}
               />
-                <label for="orta">Orta</label>
+               {" "}
+              <label for="orta" className="gri">
+                Orta
+              </label>
               <br />
               <input
                 type="radio"
@@ -233,11 +241,16 @@ export default function Form() {
                 checked={form.hamurboyut === "buyuk"}
                 onChange={handleChange}
               />
-                <label for="buyuk">Büyük</label>
+               {" "}
+              <label for="buyuk" className="gri">
+                Büyük
+              </label>
               {error.hamurboyut && <p>{error.hamurboyut}</p>}
               <br />
               <br />
             </div>
+          </section>
+          <section className="bolum2">
             <div className="hamur-kalinligi">
               <h3>
                 Hamur Kalınlığı Seç <span style={{ color: "red" }}>*</span>
@@ -250,7 +263,10 @@ export default function Form() {
                 checked={form.hamurkalinligi === "ince"}
                 onChange={handleChange}
               />
-               <label for="ince">İnce</label>
+               
+              <label for="ince" className="gri">
+                İnce
+              </label>
               <br />
               <input
                 type="radio"
@@ -260,7 +276,10 @@ export default function Form() {
                 checked={form.hamurkalinligi === "normal"}
                 onChange={handleChange}
               />
-                <label for="normal">Normal</label>
+               {" "}
+              <label for="normal" className="gri">
+                Normal
+              </label>
               <br />
               <input
                 type="radio"
@@ -270,154 +289,22 @@ export default function Form() {
                 checked={form.hamurkalinligi === "kalin"}
                 onChange={handleChange}
               />
-              <label for="kalin">Kalın</label>
+              <label for="kalin" className="gri">
+                Kalın
+              </label>
               {error.hamurkalinligi && <p>{error.hamurkalinligi}</p>}
               <br />
               <br />
-            </div>
-          </div>
-          <section className="bolum2">
-            <div className="ek-malzemeler">
-              <h3>Ek Malzemeler</h3>
-              <p>En fazla 10 malzeme seçebilirsiniz</p>
-              <div className="pizza-select">
-                <input
-                  type="checkbox"
-                  id="pepperoni"
-                  name="pepperoni"
-                  value={form.pepperoni}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="pepperoni">Pepperoni</label>
-                <br />
-                <input
-                  type="checkbox"
-                  id="sosis"
-                  name="sosis"
-                  value={form.sosis}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="sosis">Sosis</label>
-                <br />
-                <input
-                  type="checkbox"
-                  id="jambon"
-                  name="jambon"
-                  value={form.jambon}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="jambon">Jambon</label>
-                <br />
-                <input
-                  type="checkbox"
-                  id="sos"
-                  name="sos"
-                  value={form.sos}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="sos">Özel Sos</label>
-                <br />
-                <input
-                  type="checkbox"
-                  id="sogan"
-                  name="sogan"
-                  value={form.sogan}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="sogan">Soğan</label> <br />
-                <input
-                  type="checkbox"
-                  id="domates"
-                  name="domates"
-                  value={form.domates}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="domates">Domates</label> <br />
-                <input
-                  type="checkbox"
-                  id="misir"
-                  name="misir"
-                  value={form.misir}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="misir">Mısır</label> <br />
-                <input
-                  type="checkbox"
-                  id="sucuk"
-                  name="sucuk"
-                  value={form.sucuk}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="sucuk">Sucuk</label> <br />
-                <input
-                  type="checkbox"
-                  id="jalepeno"
-                  name="jalepeno"
-                  value={form.jalepeno}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="jalepeno">Jalepeno</label> <br />
-                <input
-                  type="checkbox"
-                  id="sarimsak"
-                  name="sarimsak"
-                  value={form.sarimsak}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="sarimsak">Sarımsak</label> <br />
-                <input
-                  type="checkbox"
-                  id="biber"
-                  name="biber"
-                  value={form.biber}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="biber">Biber</label> <br />
-                <input
-                  type="checkbox"
-                  id="sucuk"
-                  name="sucuk"
-                  value={form.sucuk}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="sucuk">Sucuk</label> <br />
-                <input
-                  type="checkbox"
-                  id="ananas"
-                  name="ananas"
-                  value={form.ananas}
-                  onChange={handleChange}
-                  className="pizza-select"
-                />
-                <label for="ananas">Ananas</label> <br />
-                <input
-                  type="checkbox"
-                  id="kabak"
-                  name="kabak"
-                  value={form.kabak}
-                  onChange={handleChange}
-                  class="pizza-select"
-                />
-                <label for="kabak">Kabak</label> <br />
-              </div>
             </div>
             <div className="siparis-adet">
               <h3>
                 Adet <span style={{ color: "red" }}>*</span>
               </h3>
-              <label for="adet">(En fazla 10 adet seçebilirsiniz):</label>
+              <label for="adet">
+                <p>En fazla 10 adet seçebilirsiniz.</p>
+              </label>
+              <br />
+
               <input
                 type="number"
                 id="adet"
@@ -429,11 +316,197 @@ export default function Form() {
               />
               {error.adet && <p>{error.adet}</p>}
             </div>
+          </section>
+
+          <div className="ek-malzemeler">
+            <h3>Ek Malzemeler</h3>
+            <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
+            <div className="pizza-select">
+              <div className="ps">
+                <input
+                  type="checkbox"
+                  id="pepperoni"
+                  name="pepperoni"
+                  value={form.pepperoni}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="pepperoni" className="gri">
+                  Pepperoni
+                </label>
+                <br />
+                <input
+                  type="checkbox"
+                  id="sosis"
+                  name="sosis"
+                  value={form.sosis}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="sosis" className="gri">
+                  Sosis
+                </label>
+                <br />
+                <input
+                  type="checkbox"
+                  id="jambon"
+                  name="jambon"
+                  value={form.jambon}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="jambon" className="gri">
+                  Jambon
+                </label>
+                <br />
+                <input
+                  type="checkbox"
+                  id="sos"
+                  name="sos"
+                  value={form.sos}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="sos" className="gri">
+                  Özel Sos
+                </label>
+                <br />
+                <input
+                  type="checkbox"
+                  id="sogan"
+                  name="sogan"
+                  value={form.sogan}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="sogan" className="gri">
+                  Soğan
+                </label>{" "}
+              </div>
+              <br />
+              <div className="ps">
+                <input
+                  type="checkbox"
+                  id="domates"
+                  name="domates"
+                  value={form.domates}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="domates" className="gri">
+                  Domates
+                </label>{" "}
+                <br />
+                <input
+                  type="checkbox"
+                  id="misir"
+                  name="misir"
+                  value={form.misir}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="misir" className="gri">
+                  Mısır
+                </label>{" "}
+                <br />
+                <input
+                  type="checkbox"
+                  id="sucuk"
+                  name="sucuk"
+                  value={form.sucuk}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label for="sucuk" className="gri">
+                  Sucuk
+                </label>{" "}
+                <br />
+                <input
+                  type="checkbox"
+                  id="jalepeno"
+                  name="jalepeno"
+                  value={form.jalepeno}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="jalepeno" className="gri">
+                  Jalepeno
+                </label>{" "}
+                <br />
+                <input
+                  type="checkbox"
+                  id="sarimsak"
+                  name="sarimsak"
+                  value={form.sarimsak}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="sarimsak" className="gri">
+                  Sarımsak
+                </label>{" "}
+              </div>
+              <br />{" "}
+              <div className="ps">
+                <input
+                  type="checkbox"
+                  id="biber"
+                  name="biber"
+                  value={form.biber}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="biber" className="gri">
+                  Biber
+                </label>{" "}
+                <br />
+                <input
+                  type="checkbox"
+                  id="sucuk"
+                  name="sucuk"
+                  value={form.sucuk}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="sucuk" className="gri">
+                  Sucuk
+                </label>{" "}
+                <br />
+                <input
+                  type="checkbox"
+                  id="ananas"
+                  name="ananas"
+                  value={form.ananas}
+                  onChange={handleChange}
+                  className="pizza-select"
+                />
+                <label htmlFor="ananas" className="gri">
+                  Ananas
+                </label>{" "}
+                <br />
+                <input
+                  type="checkbox"
+                  id="kabak"
+                  name="kabak"
+                  value={form.kabak}
+                  onChange={handleChange}
+                  class="pizza-select"
+                />
+                <label htmlFor="kabak" className="gri">
+                  Kabak
+                </label>{" "}
+                <br />
+              </div>
+            </div>
+          </div>
+          <section className="bolum3">
             <div className="iletisim-bilgileri">
               <h3>
                 İletişim Bilgileri <span style={{ color: "red" }}>*</span>
               </h3>
-              <label for="ad">Ad :</label>
+              <label htmlFor="ad" className="gri">
+                Ad :
+              </label>
+              <br />
               <br />
               <input
                 type="text"
@@ -441,10 +514,15 @@ export default function Form() {
                 name="ad"
                 value={form.ad}
                 onChange={handleChange}
+                placeholder="Adınız"
               />
+              <br />
               {error.ad && <p>{error.ad}</p>}
               <br />
-              <label for="soyad">Soyad :</label>
+              <label for="soyad" className="gri">
+                Soyad :
+              </label>
+              <br />
               <br />
               <input
                 type="text"
@@ -452,10 +530,15 @@ export default function Form() {
                 name="soyad"
                 value={form.soyad}
                 onChange={handleChange}
+                placeholder="Soyadınız"
               />
               {error.soyad && <p>{error.soyad}</p>}
               <br />
-              <label for="adres">Adres :</label>
+              <br />
+              <label for="adres" className="gri">
+                Adres :
+              </label>
+              <br />
               <br />
               <input
                 type="text"
@@ -463,10 +546,15 @@ export default function Form() {
                 name="adres"
                 value={form.adres}
                 onChange={handleChange}
+                placeholder="Adres"
               />
               {error.adres && <p>{error.adres}</p>}
               <br />
-              <label for="email">Email :</label>
+              <br />
+              <label for="email" className="gri">
+                Email :
+              </label>
+              <br />
               <br />
               <input
                 type="email"
@@ -474,14 +562,18 @@ export default function Form() {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
+                placeholder="Email"
               ></input>
               {error.email && <p>{error.email}</p>}
               <br />
+              <br />
             </div>
-          </section>
-          <section className="bolum3">
+
             <div className="siparis-notu">
-              <label for="siparisnotu">Sipariş notu ekleyiniz :</label>
+              <label for="siparisnotu" className="gri">
+                Sipariş notu ekleyiniz :
+              </label>
+              <br />
               <br />
               <input
                 type="text"
@@ -489,20 +581,19 @@ export default function Form() {
                 name="siparisnotu"
                 value={form.siparisnotu}
                 onChange={handleChange}
+                placeholder="Sipariş notunuz"
               />
               <br />
             </div>
-            <Link to="/ordersubmit" id="order-submit">
-              <button
-                className="buton-siparis"
-                type="submit"
-                disabled={buttonDisabled}
-                onClick={handleSubmit}
-              >
-                Sipariş Gönder
-              </button>
-            </Link>
           </section>
+          <button
+            className="buton-siparis"
+            type="submit"
+            disabled={buttonDisabled}
+            onClick={toSiparisAlindiSayfasi}
+          >
+            Sipariş Gönder
+          </button>
         </div>
       </form>
     </>

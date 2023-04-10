@@ -1,8 +1,7 @@
 import React from "react";
 import "./anasayfa.css";
 import PizzaKart from "./PizzaKart";
-import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
-import Siparis from "./Siparis";
+import { useHistory } from "react-router-dom";
 
 const pizzaCesitleri = [
   {
@@ -32,74 +31,75 @@ const pizzaCesitleri = [
 ];
 
 export default function Anasayfa() {
+  const history = useHistory();
+  const toSiparisSayfasi = () => {
+    history.push("/pizza");
+  };
+  const toAnasayfa = () => {
+    history.push("/mainpage");
+  };
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route exact path="/anasayfa">
-          <div className="anasayfa">
-            <div className="header">
-              <Link to="/anasayfa">
-                <button className="anasayfa-buton"> Anasayfa</button>
-              </Link>
-              <img
-                src="https://media2.giphy.com/media/0DbN8svza00LJkw2rj/giphy.gif?cid=ecf05e47rne1ajqlncjedgnduvw29cdt15vlkvuk1gm5pjqm&rid=giphy.gif&ct=s"
-                alt="GIF"
-                class="gif-delivery"
-              />
-              <Link to="/pizza">
-                <button className="anasayfa-buton">Sipariş Ver</button>
-              </Link>
-            </div>
+    <div className="anasayfa">
+      <div className="header">
+        <button className="anasayfa-buton" onClick={toAnasayfa}>
+          {" "}
+          Anasayfa
+        </button>
 
-            <div className="pizza">
-              <div className="pizza-header">
-                <img
-                  className="anasayfa-genis"
-                  src="https://thumbs.dreamstime.com/b/pizza-food-background-homemade-neapolitan-pizza-margherita-mozzarella-cheese-tomato-sauce-rustic-black-table-italian-249177791.jpg"
-                  alt="anasayfa-genis"
-                />
-                <h1>LEZZET PARMAKLARININ UCUNDA !</h1>
-              </div>
-            </div>
-            <div className="pizzaCesitler">
-              {pizzaCesitleri.map((event) => (
-                <PizzaKart pizzaCesitleri={event} />
-              ))}
-            </div>
-            <div className="reklam">
-              <h3>
-                Siz de lezzetli bir pizza ile keyifli bir akşam geçirmek istemez
-                misiniz?
-              </h3>
-              <div className="sufle">
-                <p>Suflemizi hala denemediniz mi?</p>
+        <img
+          src="https://media2.giphy.com/media/0DbN8svza00LJkw2rj/giphy.gif?cid=ecf05e47rne1ajqlncjedgnduvw29cdt15vlkvuk1gm5pjqm&rid=giphy.gif&ct=s"
+          alt="GIF"
+          class="gif-delivery"
+        />
 
-                <img
-                  src="https://static.mavikadin.com/images/haberler/22-09/21/sufle-2.jpg"
-                  alt="sufle"
-                />
-              </div>
-            </div>
-            <footer className="footer">
-              <p>Tüm hakları saklıdır &copy; 2023</p>
-              <ul>
-                <li>
-                  <a href="https://www.example.com">Gizlilik Politikası</a>
-                </li>
-                <li>
-                  <a href="https://www.example.com">Kullanım Şartları</a>
-                </li>
-                <li>
-                  <a href="https://www.example.com">İletişim</a>
-                </li>
-              </ul>
-            </footer>
-          </div>
-        </Route>
-        <Route exact path="/pizza">
-          <Siparis />
-        </Route>
-      </Switch>
-    </BrowserRouter>
+        <button className="anasayfa-buton" onClick={toSiparisSayfasi}>
+          Sipariş Ver
+        </button>
+      </div>
+
+      <div className="pizza">
+        <div className="pizza-header">
+          <img
+            className="anasayfa-genis"
+            src="https://thumbs.dreamstime.com/b/pizza-food-background-homemade-neapolitan-pizza-margherita-mozzarella-cheese-tomato-sauce-rustic-black-table-italian-249177791.jpg"
+            alt="anasayfa-genis"
+          />
+          <h1>LEZZET PARMAKLARININ UCUNDA !</h1>
+        </div>
+      </div>
+      <div className="pizzaCesitler">
+        {pizzaCesitleri.map((event) => (
+          <PizzaKart pizzaCesitleri={event} />
+        ))}
+      </div>
+      <div className="reklam">
+        <h3>
+          Siz de lezzetli bir pizza ile keyifli bir akşam geçirmek istemez
+          misiniz?
+        </h3>
+        <div className="sufle">
+          <p>Suflemizi hala denemediniz mi?</p>
+
+          <img
+            src="https://static.mavikadin.com/images/haberler/22-09/21/sufle-2.jpg"
+            alt="sufle"
+          />
+        </div>
+      </div>
+      <footer className="footer">
+        <p>Tüm hakları saklıdır &copy; 2023</p>
+        <ul>
+          <li>
+            <a href="https://www.example.com">Gizlilik Politikası</a>
+          </li>
+          <li>
+            <a href="https://www.example.com">Kullanım Şartları</a>
+          </li>
+          <li>
+            <a href="https://www.example.com">İletişim</a>
+          </li>
+        </ul>
+      </footer>
+    </div>
   );
 }

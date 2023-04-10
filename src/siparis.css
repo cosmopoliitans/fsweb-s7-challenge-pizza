@@ -131,26 +131,88 @@ table {
 * {
   margin: 0;
 }
+.siparis-container,
+.form-yazi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  padding-bottom: 20px;
+}
+.yemek-secimi {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.yemek-secimi h2 {
+  font-family: calibri;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.yemek-secimi h3 {
+  font-family: calibri;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.gri {
+  color: #5f5f5f;
+  font-family: calibri;
+  font-weight: bold;
+  font-size: 17px;
+}
+.yeniSiparis img {
+  height: 250px;
+  width: 250px;
+}
+.yeniSiparis {
+  background-color: #ce2829;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Yatayda ortala */
+  align-items: center; /* Dikeyde ortala */
+  gap: 50px;
+
+  /* Tam ekran boyutunu kaplamak */
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+h1 {
+  font-family: "Barlow", sans-serif;
+  color: #faf7f2;
+  font-size: 3rem;
+  text-align: center;
+}
+p {
+  font-family: calibri;
+  font-size: 1rem;
+  color: #5f5f5f;
+  font-size: 15px;
+  font-weight: bold;
+}
 .siparis {
   display: flex;
   flex-direction: column;
 }
-.form-yazi {
-  padding: 120px 200px;
+.bolum1,
+.bolum2,
+.bolum3 {
+  padding-bottom: 80px;
   display: flex;
-  flex-direction: column;
-  gap: 100px;
-  font-family: calibri;
-  color: aliceblue;
-  font-weight: bold;
-}
-.bolum1 {
-  display: flex;
+  justify-content: flex-start;
   flex-direction: row;
-  justify-content: space-around;
-  align-items: baseline;
-  gap: 120px;
+  align-items: flex-start;
+  gap: 100px;
 }
+.ek-malzemeler {
+  padding-bottom: 80px;
+}
+
 .pizza-turu {
   display: flex;
   flex-direction: column;
@@ -164,20 +226,25 @@ table {
 .siparis-adet h3,
 .iletisim-bilgileri h3 {
   font-size: 2rem;
-  color: rgb(194, 220, 241);
   padding-bottom: 20px;
+  font-family: calibri;
+  font-weight: bold;
 }
 
 .ek-malzemeler p {
   padding-bottom: 20px;
 }
-
+.ps {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 .pizza-select {
   display: flex;
   flex-direction: column;
-  max-width: 250px;
+  gap: 10px;
 }
-.bolum2 {
+/*.bolum2 {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -190,7 +257,7 @@ table {
   justify-content: flex-end;
   align-items: flex-end;
   gap: 4rem;
-}
+}*/
 .buton-siparis {
   background-color: rgb(21, 76, 121); /* arka plan rengi */
   color: aliceblue; /* yazı rengi */
