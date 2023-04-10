@@ -177,3 +177,40 @@ table {
   flex-direction: column;
   max-width: 250px;
 }
+.bolum2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  gap: 120px;
+}
+.bolum3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 4rem;
+}
+.buton-siparis {
+  background-color: rgb(21, 76, 121); /* arka plan rengi */
+  color: aliceblue; /* yazı rengi */
+  border: none; /* kenarlık yok */
+  padding: 10px 20px; /* içerik boşluğu */
+  border-radius: 5px; /* köşeleri yuvarlat */
+  cursor: pointer; /* fare imleci şekli */
+}
+
+.buton-siparis:disabled {
+  opacity: 0.5; /* etkisiz hale getirildiğinde görünümü soluklaştır */
+  cursor: not-allowed; /* etkisiz hale getirildiğinde fare imleci şekli */
+}
+.gif {
+  width: 100px;
+  height: 100px;
+  margin-left: 50px;
+  /* diğer özellikler */
+}
+.gif-delivery {
+  width: 10%;
+  height: 30%;
+}

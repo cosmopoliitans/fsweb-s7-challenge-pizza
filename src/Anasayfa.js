@@ -41,6 +41,11 @@ export default function Anasayfa() {
               <Link to="/anasayfa">
                 <button className="anasayfa-buton"> Anasayfa</button>
               </Link>
+              <img
+                src="https://media2.giphy.com/media/0DbN8svza00LJkw2rj/giphy.gif?cid=ecf05e47rne1ajqlncjedgnduvw29cdt15vlkvuk1gm5pjqm&rid=giphy.gif&ct=s"
+                alt="GIF"
+                class="gif-delivery"
+              />
               <Link to="/pizza">
                 <button className="anasayfa-buton">Sipariş Ver</button>
               </Link>
