@@ -220,6 +220,7 @@ export default function Form() {
                 Küçük
               </label>
               <br />
+              <br />
               <input
                 type="radio"
                 id="orta"
@@ -232,6 +233,7 @@ export default function Form() {
               <label for="orta" className="gri">
                 Orta
               </label>
+              <br />
               <br />
               <input
                 type="radio"
@@ -268,6 +270,7 @@ export default function Form() {
                 İnce
               </label>
               <br />
+              <br />
               <input
                 type="radio"
                 id="normal"
@@ -280,6 +283,7 @@ export default function Form() {
               <label for="normal" className="gri">
                 Normal
               </label>
+              <br />
               <br />
               <input
                 type="radio"
@@ -582,6 +586,7 @@ export default function Form() {
                 value={form.siparisnotu}
                 onChange={handleChange}
                 placeholder="Sipariş notunuz"
+                className="siparisNotu"
               />
               <br />
             </div>

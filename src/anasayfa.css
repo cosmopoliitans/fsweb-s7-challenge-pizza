@@ -150,7 +150,8 @@ table {
   font-size: 20px;
   background-color: #fdc913;
   border-radius: 20px;
-  border: solid 1px aliceblue;
+  border: none;
+  cursor: pointer;
   font-family: Calibri;
   transition: 0.5s;
   text-decoration: none;

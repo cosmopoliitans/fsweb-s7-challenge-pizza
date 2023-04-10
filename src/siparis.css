@@ -139,6 +139,7 @@ table {
   align-items: center;
   height: 30%;
   padding-bottom: 20px;
+  padding-top: 70px;
 }
 .yemek-secimi {
   display: flex;
@@ -258,12 +259,16 @@ p {
   align-items: flex-end;
   gap: 4rem;
 }*/
+.siparisNotu {
+  width: 10rem;
+  height: 4rem;
+}
 .buton-siparis {
   background-color: rgb(21, 76, 121); /* arka plan rengi */
   color: aliceblue; /* yazı rengi */
   border: none; /* kenarlık yok */
-  padding: 10px 20px; /* içerik boşluğu */
-  border-radius: 5px; /* köşeleri yuvarlat */
+  padding: 20px 30px; /* içerik boşluğu */
+  border-radius: 20px; /* köşeleri yuvarlat */
   cursor: pointer; /* fare imleci şekli */
 }
 
