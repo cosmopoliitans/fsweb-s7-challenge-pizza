@@ -196,14 +196,23 @@ p {
   flex-direction: column;
 }
 .bolum1,
-.bolum2,
-.bolum3 {
+.bolum2 {
   padding-bottom: 80px;
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
   align-items: flex-start;
   gap: 100px;
+}
+.bolum3 {
+  display: flex;
+  gap: 50px;
+}
+
+.siparis-notu-select {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 .ek-malzemeler {
   padding-bottom: 80px;
@@ -214,12 +223,29 @@ p {
   flex-direction: column;
   justify-content: center;
 }
-
+.st {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.top-siparis {
+  padding-top: 1rem;
+  background-color: #ffffff;
+  border: 1px solid rgb(89, 89, 89);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.top-siparis h3 {
+  padding: 10px;
+}
 .pizza-turu h3,
 .hamur-boyut h3,
 .hamur-kalinligi h3,
 .ek-malzemeler h3,
 .siparis-adet h3,
+.top-siparis h3,
 .iletisim-bilgileri h3 {
   font-size: 2rem;
   padding-bottom: 20px;
@@ -255,16 +281,18 @@ p {
   gap: 4rem;
 }*/
 .siparisNotu {
-  width: 10rem;
-  height: 4rem;
+  width: 18rem;
+  height: 2rem;
 }
 .buton-siparis {
-  background-color: rgb(21, 76, 121); /* arka plan rengi */
-  color: aliceblue; /* yazı rengi */
-  border: none; /* kenarlık yok */
-  padding: 20px 30px; /* içerik boşluğu */
-  border-radius: 20px; /* köşeleri yuvarlat */
-  cursor: pointer; /* fare imleci şekli */
+  width: 100%;
+  background-color: #fdc913;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-weight: bold;
+  font-family: "Barlow", sans-serif;
+  cursor: pointer;
 }
 
 .buton-siparis:disabled {

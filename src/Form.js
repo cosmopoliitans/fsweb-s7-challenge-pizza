@@ -145,6 +145,7 @@ export default function Form() {
     axios
       .post("https://reqres.in/api/users", form)
       .then((response) => {
+        console.log("Sipariş başarıyla gönderildi:", response);
         setYeniSiparis([...yeniSiparis, response.data]);
         setForm({
           pizzaturu: "",
@@ -170,7 +171,7 @@ export default function Form() {
           email: "",
           siparisnotu: "",
         });
-        console.log(response.data);
+
         history.push("/success");
       })
       .catch((err) => console.log(err));
@@ -572,33 +573,52 @@ export default function Form() {
               <br />
               <br />
             </div>
-
-            <div className="siparis-notu">
-              <label for="siparisnotu" className="gri">
-                Sipariş notu ekleyiniz :
-              </label>
-              <br />
-              <br />
-              <input
-                type="text"
-                id="siparisnotu"
-                name="siparisnotu"
-                value={form.siparisnotu}
-                onChange={handleChange}
-                placeholder="Sipariş notunuz"
-                className="siparisNotu"
-              />
-              <br />
+            <div className="siparis-notu-select">
+              <div className="siparis-notu">
+                <label for="siparisnotu" className="gri">
+                  Sipariş notu ekleyiniz :
+                </label>
+                <br />
+                <br />
+                <input
+                  type="text"
+                  id="siparisnotu"
+                  name="siparisnotu"
+                  value={form.siparisnotu}
+                  onChange={handleChange}
+                  placeholder="Siparişine eklemek istediğin bir not var mı?"
+                  className="siparisNotu"
+                />
+                <br />
+              </div>
+              <div className="top-siparis">
+                <h3>Sipariş Toplamı</h3>
+                <div className="st">
+                  <p>Seçimler</p>
+                  <p>25.00₺</p> <br />
+                </div>
+                <div className="st">
+                  <p>
+                    {" "}
+                    <span style={{ color: "red" }}> Toplam </span>
+                  </p>
+                  <p>
+                    {" "}
+                    <span style={{ color: "red" }}>135.00₺</span>
+                  </p>{" "}
+                  <br />
+                </div>
+                <button
+                  className="buton-siparis"
+                  type="submit"
+                  disabled={buttonDisabled}
+                  onClick={toSiparisAlindiSayfasi}
+                >
+                  Sipariş Gönder
+                </button>
+              </div>
             </div>
           </section>
-          <button
-            className="buton-siparis"
-            type="submit"
-            disabled={buttonDisabled}
-            onClick={toSiparisAlindiSayfasi}
-          >
-            Sipariş Gönder
-          </button>
         </div>
       </form>
     </>
