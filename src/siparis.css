@@ -133,19 +133,14 @@ table {
 }
 .siparis-container,
 .form-yazi {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
-  padding-bottom: 20px;
-  padding-top: 70px;
+  margin: 0 auto;
+  text-align: left;
 }
 .yemek-secimi {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 2rem;
+  padding-bottom: 40px;
 }
 
 .yemek-secimi h2 {

@@ -35,13 +35,13 @@ export default function Anasayfa() {
   const toSiparisSayfasi = () => {
     history.push("/pizza");
   };
-  const toAnasayfa = () => {
-    history.push("/mainpage");
+  const toGiris = () => {
+    history.push("/");
   };
   return (
     <div className="anasayfa">
       <div className="header">
-        <button className="anasayfa-buton" onClick={toAnasayfa}>
+        <button className="anasayfa-buton" onClick={toGiris}>
           {" "}
           Anasayfa
         </button>

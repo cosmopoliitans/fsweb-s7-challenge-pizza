@@ -170,12 +170,12 @@ export default function Form() {
           email: "",
           siparisnotu: "",
         });
-        console.log(form);
+        console.log(response.data);
         history.push("/success");
       })
       .catch((err) => console.log(err));
   }
-
+  console.log(form);
   return (
     <>
       <form onSubmit={handleSubmit}>
