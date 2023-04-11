@@ -135,7 +135,6 @@ table {
   display: block;
   flex-direction: column;
 }
-
 .header {
   display: flex; /* menü öğelerini yan yana hizalamak için */
   justify-content: space-between; /* öğeleri arasında boşluk bırakmak için */
@@ -170,8 +169,8 @@ table {
   letter-spacing: 13px;
   font-size: 50px;
   position: absolute;
-  top: 50%;
-  left: 70%;
+  top: 30%;
+  left: 50%;
   transform: translate(-50%, -50%);
   color: aliceblue;
   text-shadow: 2px 2px 4px #000000;
@@ -214,7 +213,7 @@ table {
 }
 .anasayfa-genis {
   width: 100%; /* resmin genişliği */
-  height: auto; /* oranları korumak için */
+  height: 800px; /* oranları korumak için */
 }
 
 .pizzaCesitler img {

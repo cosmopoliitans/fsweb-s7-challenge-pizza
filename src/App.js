@@ -15,7 +15,7 @@ const App = () => {
         <Route exact path="/mainpage">
           <Anasayfa />
         </Route>
-        <Route exact path="/pizza">
+        <Route exact path="/order-pizza">
           <Siparis />
         </Route>
         <Route exact path="/success">

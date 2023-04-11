@@ -8,7 +8,7 @@ export default function Siparis() {
     history.push("/mainpage");
   };
   const toSiparisSayfasi = () => {
-    history.push("/pizza");
+    history.push("/order-pizza");
   };
   return (
     <div className="siparis">

@@ -33,7 +33,7 @@ const pizzaCesitleri = [
 export default function Anasayfa() {
   const history = useHistory();
   const toSiparisSayfasi = () => {
-    history.push("/pizza");
+    history.push("/order-pizza");
   };
   const toGiris = () => {
     history.push("/");
@@ -61,7 +61,7 @@ export default function Anasayfa() {
         <div className="pizza-header">
           <img
             className="anasayfa-genis"
-            src="https://thumbs.dreamstime.com/b/pizza-food-background-homemade-neapolitan-pizza-margherita-mozzarella-cheese-tomato-sauce-rustic-black-table-italian-249177791.jpg"
+            src="https://i.pinimg.com/originals/b6/5e/6a/b65e6ad113f923ceee95afdab4f50a5b.png"
             alt="anasayfa-genis"
           />
           <h1>LEZZET PARMAKLARININ UCUNDA !</h1>
