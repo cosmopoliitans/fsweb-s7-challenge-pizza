@@ -70,7 +70,7 @@ export default function Form() {
     biber: false,
     ananas: false,
     kabak: false,
-    adet: false,
+    adet: "1",
     ad: "",
     soyad: "",
     adres: "",
@@ -82,20 +82,20 @@ export default function Form() {
     pizzaturu: "",
     hamurboyut: "",
     hamurkalinligi: "",
-    pepperoni: false,
-    sosis: false,
-    jambon: false,
-    sos: false,
-    sogan: false,
-    domates: false,
-    misir: false,
-    sucuk: false,
-    jalepeno: false,
-    sarimsak: false,
-    biber: false,
-    ananas: false,
-    kabak: false,
-    adet: false,
+    pepperoni: "",
+    sosis: "",
+    jambon: "",
+    sos: "",
+    sogan: "",
+    domates: "",
+    misir: "",
+    sucuk: "",
+    jalepeno: "",
+    sarimsak: "",
+    biber: "",
+    ananas: "",
+    kabak: "",
+    adet: "",
     ad: "",
     soyad: "",
     adres: "",
@@ -104,11 +104,29 @@ export default function Form() {
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
-  const [yeniSiparis, setYeniSiparis] = useState([]);
+  //const [yeniSiparis, setYeniSiparis] = useState(null);
   const history = useHistory();
-  const toSiparisAlindiSayfasi = () => {
-    history.push("/success");
-  };
+  //const toSiparisAlindiSayfasi = () => {
+  //  history.push("/success");
+  //};
+
+  const toplamFiyat =
+    (100 +
+      Object.values(form).filter((value) => value === "false").length * 5) *
+    form.adet;
+
+  useEffect(() => {
+    formSchema.isValid(form).then((valid) => setButtonDisabled(!valid));
+  }, [form]);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+    checkFormError(name, value);
+    setForm({
+      ...form,
+      [name]: value,
+    });
+  }
 
   const checkFormError = (name, value) => {
     Yup.reach(formSchema, name)
@@ -127,30 +145,17 @@ export default function Form() {
       });
   };
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    checkFormError(name, value);
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  }
-
-  useEffect(() => {
-    formSchema.isValid(form).then((valid) => setButtonDisabled(!valid));
-  }, [form]);
-
   function handleSubmit(event) {
     event.preventDefault();
     axios
       .post("https://reqres.in/api/users", form)
       .then((response) => {
-        console.log("Sipariş başarıyla gönderildi:", response);
-        setYeniSiparis([...yeniSiparis, response.data]);
+        console.log("Sipariş başarıyla gönderildi:", response.data);
+        // setYeniSiparis(response.data);
         setForm({
           pizzaturu: "",
-          hamurboyut: "",
-          hamurkalinligi: "",
+          hamurboyut: "none",
+          hamurkalinligi: "none",
           pepperoni: false,
           sosis: false,
           jambon: false,
@@ -190,7 +195,6 @@ export default function Form() {
               </label>
               <br />
               <select
-                class
                 name="pizzaturu"
                 id="size-dropdown"
                 value={form.pizzaturu}
@@ -334,9 +338,9 @@ export default function Form() {
                   name="pepperoni"
                   value={form.pepperoni}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="pepperoni" className="gri">
+                <label for="pepperoni" className="gri">
                   Pepperoni
                 </label>
                 <br />
@@ -346,9 +350,9 @@ export default function Form() {
                   name="sosis"
                   value={form.sosis}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="sosis" className="gri">
+                <label for="sosis" className="gri">
                   Sosis
                 </label>
                 <br />
@@ -358,9 +362,9 @@ export default function Form() {
                   name="jambon"
                   value={form.jambon}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="jambon" className="gri">
+                <label for="jambon" className="gri">
                   Jambon
                 </label>
                 <br />
@@ -370,9 +374,9 @@ export default function Form() {
                   name="sos"
                   value={form.sos}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="sos" className="gri">
+                <label for="sos" className="gri">
                   Özel Sos
                 </label>
                 <br />
@@ -382,9 +386,9 @@ export default function Form() {
                   name="sogan"
                   value={form.sogan}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="sogan" className="gri">
+                <label for="sogan" className="gri">
                   Soğan
                 </label>{" "}
               </div>
@@ -396,9 +400,9 @@ export default function Form() {
                   name="domates"
                   value={form.domates}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="domates" className="gri">
+                <label for="domates" className="gri">
                   Domates
                 </label>{" "}
                 <br />
@@ -408,9 +412,9 @@ export default function Form() {
                   name="misir"
                   value={form.misir}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="misir" className="gri">
+                <label for="misir" className="gri">
                   Mısır
                 </label>{" "}
                 <br />
@@ -420,7 +424,7 @@ export default function Form() {
                   name="sucuk"
                   value={form.sucuk}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
                 <label for="sucuk" className="gri">
                   Sucuk
@@ -432,9 +436,9 @@ export default function Form() {
                   name="jalepeno"
                   value={form.jalepeno}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="jalepeno" className="gri">
+                <label for="jalepeno" className="gri">
                   Jalepeno
                 </label>{" "}
                 <br />
@@ -444,9 +448,9 @@ export default function Form() {
                   name="sarimsak"
                   value={form.sarimsak}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="sarimsak" className="gri">
+                <label for="sarimsak" className="gri">
                   Sarımsak
                 </label>{" "}
               </div>
@@ -458,9 +462,9 @@ export default function Form() {
                   name="biber"
                   value={form.biber}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="biber" className="gri">
+                <label for="biber" className="gri">
                   Biber
                 </label>{" "}
                 <br />
@@ -470,9 +474,9 @@ export default function Form() {
                   name="sucuk"
                   value={form.sucuk}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="sucuk" className="gri">
+                <label for="sucuk" className="gri">
                   Sucuk
                 </label>{" "}
                 <br />
@@ -484,7 +488,7 @@ export default function Form() {
                   onChange={handleChange}
                   className="pizza-select"
                 />
-                <label htmlFor="ananas" className="gri">
+                <label for="ananas" className="gri">
                   Ananas
                 </label>{" "}
                 <br />
@@ -494,9 +498,9 @@ export default function Form() {
                   name="kabak"
                   value={form.kabak}
                   onChange={handleChange}
-                  class="pizza-select"
+                  className="pizza-select"
                 />
-                <label htmlFor="kabak" className="gri">
+                <label for="kabak" className="gri">
                   Kabak
                 </label>{" "}
                 <br />
@@ -508,7 +512,7 @@ export default function Form() {
               <h3>
                 İletişim Bilgileri <span style={{ color: "red" }}>*</span>
               </h3>
-              <label htmlFor="ad" className="gri">
+              <label for="ad" className="gri">
                 Ad :
               </label>
               <br />
@@ -595,7 +599,7 @@ export default function Form() {
                 <h3>Sipariş Toplamı</h3>
                 <div className="st">
                   <p>Seçimler</p>
-                  <p>25.00₺</p> <br />
+                  <p>100₺</p> <br />
                 </div>
                 <div className="st">
                   <p>
@@ -604,7 +608,7 @@ export default function Form() {
                   </p>
                   <p>
                     {" "}
-                    <span style={{ color: "red" }}>135.00₺</span>
+                    <span style={{ color: "red" }}>{toplamFiyat}₺</span>
                   </p>{" "}
                   <br />
                 </div>
@@ -612,7 +616,6 @@ export default function Form() {
                   className="buton-siparis"
                   type="submit"
                   disabled={buttonDisabled}
-                  onClick={toSiparisAlindiSayfasi}
                 >
                   Sipariş Gönder
                 </button>
