@@ -115,10 +115,14 @@ export default function Form() {
       Object.values(form).filter((value) => value === "false").length * 5) *
     form.adet;
 
+  // formun her değişikliğinde doğrulamayı gerçekleştiriyor
+  // formSchema'daki her koşula uyuyorsa butonu aktifleştiriyor
   useEffect(() => {
     formSchema.isValid(form).then((valid) => setButtonDisabled(!valid));
   }, [form]);
 
+  // event.target üzerinden form alanının değeri alınır "name" ve "value" değişkenine atanır
+  // "n"
   function handleChange(event) {
     const { name, value } = event.target;
     checkFormError(name, value);
@@ -127,7 +131,7 @@ export default function Form() {
       [name]: value,
     });
   }
-
+  // formu her değişiklikte kontrol ediyor, hata varsa
   const checkFormError = (name, value) => {
     Yup.reach(formSchema, name)
       .validate(value)
@@ -144,8 +148,10 @@ export default function Form() {
         });
       });
   };
-
+  //formun sunucuya gönderilmesi ve başarılı bir yanıt alındığında
+  // formun sıfırlanması ve kullanıcının yönlendirilmesi
   function handleSubmit(event) {
+    // formun varsayılan gönderim davranışı engellenir
     event.preventDefault();
     axios
       .post("https://reqres.in/api/users", form)

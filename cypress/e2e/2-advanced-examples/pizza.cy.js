@@ -30,7 +30,7 @@ describe("Form Gönderme Testi", () => {
       .check();
 
     // adet gir
-    cy.get('input[name="adet"]').type("2");
+    cy.get('input[name="adet"]');
 
     // ek malzeme seç
     cy.get('[type="checkbox"]').check();

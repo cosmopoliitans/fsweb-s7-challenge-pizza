@@ -31,6 +31,7 @@ const pizzaCesitleri = [
 ];
 
 export default function Anasayfa() {
+  // sayfa yönlendirmesi için useHistory
   const history = useHistory();
   const toSiparisSayfasi = () => {
     history.push("/order-pizza");

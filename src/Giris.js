@@ -3,6 +3,7 @@ import "./giris.css";
 import { useHistory } from "react-router-dom";
 
 export default function Giris() {
+  // sayfa yönlendirmesi için useHistory
   const history = useHistory();
   const toAnasayfa = () => {
     history.push("/mainpage");

@@ -5,6 +5,8 @@ import Siparis from "./Siparis";
 import Basarili from "./Basarili";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
+//"react-router-dom" kütüphanesini kullanarak uygulamanın farklı sayfalarına yönlendirme (routing) işlemleri
+
 const App = () => {
   return (
     <BrowserRouter>

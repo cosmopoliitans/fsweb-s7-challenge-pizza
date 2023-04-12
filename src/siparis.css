@@ -141,6 +141,7 @@ table {
   flex-direction: column;
   gap: 2rem;
   padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 .yemek-secimi h2 {

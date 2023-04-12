@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Form from "./Form";
 
 export default function Siparis() {
+  // sayfa yönlendirmesi için useHistory
   const history = useHistory();
   const toAnasayfa = () => {
     history.push("/mainpage");
