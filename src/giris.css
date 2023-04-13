@@ -127,7 +127,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* Buradan başlıyor */
+/* -----------------Buradan başlıyor ---------------*/
 
 body {
   margin: 0;
@@ -175,6 +175,6 @@ body {
   position: fixed;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
+  transform: translateX(-50%); /* x ekseninde hizalama */
+  z-index: -1; /* arkaplanda */
 }

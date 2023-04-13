@@ -36,7 +36,7 @@ const formSchema = Yup.object().shape({
   biber: Yup.boolean().oneOf([true, false], ""),
   ananas: Yup.boolean().oneOf([true, false], ""),
   kabak: Yup.boolean().oneOf([true, false], ""),
-  adet: Yup.number().required("En fazla 10 adet sipariş verebilirsiniz"),
+  adet: Yup.number().required(),
   ad: Yup.string()
     .required()
     .min(2, "En az 2 karakter içermelidir"),
@@ -316,7 +316,7 @@ export default function Form() {
                 Adet <span style={{ color: "red" }}>*</span>
               </h3>
               <label for="adet">
-                <p>En fazla 10 adet seçebilirsiniz.</p>
+                <p>Lütfen adet seçiniz.</p>
               </label>
               <br />
 
